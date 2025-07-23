@@ -12,8 +12,8 @@ def print_status(text, status):
 class Print:   
     def print_menu(self):
         print(colored("===== Menu =====","blue"))
-        print(colored("1.Login" , "yellow"))
-        print(colored("2.Register" , "yellow"))
+        print(colored("1.Register" , "yellow"))
+        print(colored("2.Login" , "yellow"))
         print(colored("3.Exit" , "yellow"))
     
     def welcome(self):
