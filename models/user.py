@@ -1,3 +1,4 @@
+from termcolor import colored
 import json
 from datetime import datetime
 from uuid import uuid4
@@ -5,7 +6,7 @@ from utils import (
     make_password, is_valid_username, print_status,
     is_valid_password,
 )
-
+from getpass import getpass
 
 class User:
     
@@ -65,33 +66,139 @@ class User:
 
     @classmethod
     def create_user(cls):
-        username = input("Username: ")
-        password = input("Password: ")
-        confirm_password = input("Confirm Password: ")
-        phone = input("Phone: ")
-        first_name = input("First Name: ")
-        last_name = input("Last Name: ")
-        age = input("Age: ")
-        gender = input("Gender: ")
-
-        if not is_valid_username(username):
-            print_status("username xato kiritildi.", "error")
-        elif User.check_username(username):
-            print_status("username tanlangean.", 'error')
-        elif not is_valid_password(password):
-            print_status("password xato kiritildi.", "error")
-        elif password != confirm_password:
-            print_status("password va confirm password mos emas.", "error")
-        else:
-            user = cls(str(uuid4()), username, make_password(password), phone, first_name, last_name, age, gender)
-            users = cls.load_users()
-            users.append(user)
-            cls.save_users(users)
-
-    @classmethod
-    def check_username(cls, username: str):
-        for user in User.load_users():
-            if user.username == username:
-                return True
+        while True:
+            username = input("Username: ")
             
+            if not username:
+                print(colored("Username bo'sh bo'lishi mumkin emas!" , "red"))
+                
+            elif len(username) < 4 or len(username) > 20:
+                print(colored("Username 4 dan 20 gacha belgidan iborat bo'lishi kerak!" , "red"))
+                
+            elif not username.isalnum():
+                print(colored("Usernameda harf va raqam bo'lish kerak!" , "red"))
+                
+            else:
+                print(colored("Username qabul qilindi!" , "green"))
+                break
+            
+        while True:
+            password = getpass("Password: ")
+            
+            if len(password) < 8 or len(password) > 12:
+                print(colored("Parol 8 dan 12 gacha belgidan iborat bo'lish kerak!" , "red"))
+                
+            else:
+                print(colored("Parol qabul qilindi!" , "green"))
+                break
+            
+        while True:
+            confirm_password = getpass("Confirm Password: ")
+            
+            if confirm_password != password:
+                print(colored("Parollar tasdiqlanmad!" , "red"))
+                
+            else:
+                print(colored("Parollar tasdiqlandi!" , "green"))
+                break
+            
+        while True:
+            phone = input("Phone: ")
+            
+            if not phone.isdigit():
+                print(colored("Raqamdan iborat bo'lish kerak!" , "red"))
+                
+            elif len(phone) != 9:
+                print(colored("Telefon nomer 9 raqamdan iborat bo'lsin!" , "red"))
+                
+            else:
+                print(colored("Telefon nomer tasdiqlandi!" , "green"))
+                break
+            
+        while True:
+            first_name = input("First Name: ").capitalize()
+            
+            if not first_name.isalpha():
+                print(colored("Ism faqat harfdan iborat bo'lish kerak!" , "red"))
+                
+            else:
+                print(colored("Ism tasdiqlandi!" , "green"))
+                break
+            
+        while True:
+            last_name = input("Last Name: ").capitalize()
+            
+            if not last_name.isalpha():
+                print(colored("Familiya faqat harfdan iborat bo'lish kerak!" , "red"))
+                
+            else:
+                print(colored("Familiya tasdiqlandi!" , "green"))
+                break
+        
+        while True:
+                age = input("Age: ")
+                
+                if not age.isdigit():
+                   print(colored("Yosh raqamdan iborat bo'lish kerak!" , "red"))
+                   
+                elif int(age) <= 0:
+                    print(colored("Yosh hato kiritildi!" , "red"))
+                    
+                elif int(age) > 99:
+                    print(colored("Yosh hato kiritildi!" , "red"))
+                    
+                else:
+                    print(colored("Yosh tasdiqlandi!" , "green"))  
+                    break 
+        
+        while True:
+            gender = input("Gender: ").lower()
+            
+            if gender not in ["female" , "male"] :
+                print(colored("Jins noto'g'ri kiritildi!" , "red"))
+                
+            else:
+                print(colored("Jins tasdiqlandi!" , "green"))
+                break
+
+
+        user = cls(
+                str(uuid4()),
+                username,
+                make_password(password), 
+                phone,
+                first_name,
+                last_name,
+                int(age),
+                gender
+                )
+
+
+        users = cls.load_users()
+
+
+        users.append(user)
+
+
+        cls.save_users(users)
+
+        print(colored("Foydalanuvchi muvaffaqiyatli ro'yxatdan o'tdi!", "cyan"))
+
+    def login_user():
+        try:
+            with open('database/users.json', 'r') as file:
+                users = json.load(file)
+        except:
+            print(colored("Foydalanuvchilar ro'yxati topilmadi!", "red"))
+            return
+
+        username = input("Username: ")
+        password = getpass("Password: ")
+
+        for user in users:
+            if user['username'] == username and user['password'] == make_password(password):
+                print(colored("Xush kelibsiz!", "green"))
+                return True
+        
+        print(colored("Foydalanuvchi topilmadi!", "red"))
         return False
