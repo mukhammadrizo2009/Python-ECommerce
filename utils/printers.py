@@ -24,3 +24,20 @@ class Print:
         
     def welcome2(self):
         print(colored("Sizni ko'rganimizdan hursandmiz!" , "blue"))
+        
+    def order_print(self):
+        print(colored("===== Order Menu =====","blue"))
+        print(colored("1.Mahsulotlar ro'yhati." , "yellow"))
+        print(colored("2.Buyurtma berish." , "yellow"))
+        print(colored("3.Buyurtmalarni ko'rish." , "yellow"))
+        print(colored("4.Exit" , "yellow"))
+        
+    def mahsulotlar(self):
+        print(colored("Mahsulotlar ro'yhati!" , "light_green"))
+        
+        
+    def buyurtma(self):
+        print(colored("Buyurtma berishga xush kelibsiz!" , "light_green"))
+        
+    def buyurtmani_korish(self):
+        print(colored("Buyurtmalaringiz ro'yhati!" , "light_green"))

@@ -1,52 +1,52 @@
 [
   {
-    "id": "47b47a6a-5a92-4f3b-a1f8-316142c84868",
-    "username": "rizobek",
-    "password": "e24df920078c3dd4e7e8d2442f00e5c9ab2a231bb3918d65cc50906e49ecaef4",
+    "id": "638764da-41d2-48e2-9d19-9e7dd00dac04",
+    "username": "m1rzayeoff",
+    "password": "ef797c8118f02dfb649607dd5d3f8c7623048c9c063d532cc95c5ed7a898a64f",
     "phone": "916284110",
     "first_name": "Mukhammadrizo",
     "last_name": "Mirzayev",
-    "age": 17,
+    "age": 16,
     "gender": "male"
   },
   {
-    "id": "e1e8aa04-34d5-4614-97eb-c2e82c3b2d19",
-    "username": "humo",
-    "password": "7e071fd9b023ed8f18458a73613a0834f6220bd5cc50357ba3493c6040a9ea8c",
-    "phone": "909009090",
-    "first_name": "Humoyun",
-    "last_name": "Mirzo",
-    "age": 31,
+    "id": "73505ee3-0780-4177-824c-57dac3ae6e72",
+    "username": "rizobek",
+    "password": "e24df920078c3dd4e7e8d2442f00e5c9ab2a231bb3918d65cc50906e49ecaef4",
+    "phone": "987654321",
+    "first_name": "Rizobek",
+    "last_name": "Aliboyev",
+    "age": 15,
     "gender": "male"
   },
   {
-    "id": "05be3a21-8868-4e3c-a148-d0c5cbe098cb",
-    "username": "user",
+    "id": "4012c175-1a98-47fc-b0c9-f4e7cf75aa4b",
+    "username": "Kimm",
     "password": "615ed7fb1504b0c724a296d7a69e6c7b2f9ea2c57c1d8206c5afdf392ebdfd25",
     "phone": "909009090",
-    "first_name": "Kim",
-    "last_name": "Huk",
+    "first_name": "Kimman",
+    "last_name": "Kimsan",
     "age": 34,
     "gender": "female"
   },
   {
-    "id": "2b59dec9-6826-4351-aa68-f202e2824958",
-    "username": "kimm",
-    "password": "85de756812e7d9b2f16158c59268a475a101d289e60c5c2b5d5a88e4af08cf95",
-    "phone": "899009898",
-    "first_name": "Gikk",
-    "last_name": "Kiggg",
-    "age": 12,
-    "gender": "male"
+    "id": "5125e706-56c7-4a22-9285-0e271db46eac",
+    "username": "mknn",
+    "password": "ef797c8118f02dfb649607dd5d3f8c7623048c9c063d532cc95c5ed7a898a64f",
+    "phone": "123456789",
+    "first_name": "Kmbkjbh",
+    "last_name": "Khhhvs",
+    "age": 34,
+    "gender": "female"
   },
   {
-    "id": "7379f247-54f2-467d-8398-5f5e31a79a2e",
-    "username": "jonbek",
-    "password": "932f3c1b56257ce8539ac269d7aab42550dacf8818d075f0bdf1990562aae3ef",
-    "phone": "312123312",
-    "first_name": "Dfsadfdsf",
-    "last_name": "Gdfsgsdf",
-    "age": 22,
-    "gender": "male"
+    "id": "09fc1cbd-dee8-4e4a-b3dd-640bd75521f1",
+    "username": "jiio",
+    "password": "ef797c8118f02dfb649607dd5d3f8c7623048c9c063d532cc95c5ed7a898a64f",
+    "phone": "123456789",
+    "first_name": "Kimfrmkiir",
+    "last_name": "Inj",
+    "age": 12,
+    "gender": "female"
   }
 ]

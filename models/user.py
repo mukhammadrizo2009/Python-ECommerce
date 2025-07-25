@@ -183,22 +183,22 @@ class User:
         cls.save_users(users)
 
         print(colored("Foydalanuvchi muvaffaqiyatli ro'yxatdan o'tdi!", "cyan"))
-
+    
     def login_user():
         try:
             with open('database/users.json', 'r') as file:
                 users = json.load(file)
         except:
             print(colored("Foydalanuvchilar ro'yxati topilmadi!", "red"))
-            return
+            return []
 
         username = input("Username: ")
         password = getpass("Password: ")
 
         for user in users:
             if user['username'] == username and user['password'] == make_password(password):
-                print(colored("Xush kelibsiz!", "green"))
+                print(colored(f"Xush kelibsiz {user['first_name']} !", "green"))
                 return True
-        
-        print(colored("Foydalanuvchi topilmadi!", "red"))
-        return False
+            else:
+                print(colored(f"{username} nomli foydalanuvchi topilmadi!", "red"))
+                return False
